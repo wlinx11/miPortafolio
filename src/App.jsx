@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -14,9 +14,39 @@ const App = () => {
     setLanguage(language === "es" ? "en" : "es");
   };
 
-  const [darkMode, setDarkMode] = useState("light"); // Estado para el modo oscuro
+  // Función para detectar el modo preferido del sistema
+  const getSystemTheme = () => {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      return "dark";
+    }
+    return "light";
+  };
 
-  // Función para alternar el modo oscuro
+  // Inicializar con el modo del sistema
+  const [darkMode, setDarkMode] = useState(getSystemTheme());
+
+  // useEffect para escuchar cambios en el modo del sistema
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    // Función que se ejecuta cuando cambia el modo del sistema
+    const handleSystemThemeChange = (e) => {
+      setDarkMode(e.matches ? "dark" : "light");
+    };
+
+    // Agregar el listener
+    mediaQuery.addEventListener("change", handleSystemThemeChange);
+
+    // Cleanup: remover el listener cuando el componente se desmonte
+    return () => {
+      mediaQuery.removeEventListener("change", handleSystemThemeChange);
+    };
+  }, []);
+
+  // Función para alternar manualmente el modo oscuro
   const toggleDarkMode = () => {
     setDarkMode(darkMode === "light" ? "dark" : "light");
   };

@@ -15,9 +15,9 @@ import * as DevIcons from "devicons-react";
 import { AlignVerticalJustifyCenter } from "lucide-react";
 
 export const HERO_CONTENTS = {
-  en: `I'm Roboam Ismael Rangel Ceja, a computer systems engineering student specializing in software engineering with experience in frontend development.`,
+  en: `I am a Junior Web Developer, soon to graduate as a Computer Systems Engineer from the Instituto Tecnológico de Morelia, with a specialization in Software Engineering.`,
 
-  es: `Soy Roboam Ismael Rangel Ceja, estudiante de ingeniería en sistemas computacionales con especialidad en ingeniería de software con experiencia en desarrollo frontend.`
+  es: `Soy un Desarrollador Web Junior, próximo a titularme como Ingeniero en Sistemas Computacionales en el Instituto Tecnológico de Morelia, con especialidad en Ingeniería de Software.`,
 };
 
 export const ABOUT_TEXT = {

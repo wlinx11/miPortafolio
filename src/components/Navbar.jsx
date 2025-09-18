@@ -29,6 +29,17 @@ const IconWrapper = styled.a`
     transform: scale(0.9);
     background-color: #0077b5;
   }
+
+  /* Tamaño más pequeño en móviles */
+  @media (max-width: 768px) {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
 `;
 
 const WhatsappIconWrapper = styled(IconWrapper)`
@@ -39,10 +50,10 @@ const WhatsappIconWrapper = styled(IconWrapper)`
 
 const PdfIconWrapper = styled(IconWrapper)`
   position: relative;
-  flex-direction: column; /* Apilamos el icono y el texto en columnas */
+  flex-direction: column;
 
   /* Tooltip visible solo en pantallas grandes */
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     &:hover span {
       opacity: 1;
       transform: translateY(0);
@@ -63,23 +74,13 @@ const PdfIconWrapper = styled(IconWrapper)`
     }
   }
 
-  /* Texto siempre visible en dispositivos móviles y ajuste de tamaño */
-  @media (max-width: 767px) {
-    display: flex;
-    align-items: center;
-    width: 2.5rem; /* Reducimos el ancho */
-    height: 2.5rem; /* Reducimos el alto */
+  /* Ocultar texto en móviles para ahorrar espacio */
+  @media (max-width: 768px) {
     span {
-      font-size: 0.6rem;
-      margin-top: 0.2rem;
-      color: #fff;
-      opacity: 1;
-      transform: none;
-      white-space: nowrap; /* Mantiene el texto en una sola línea */
+      display: none;
     }
   }
 `;
-
 
 const StyledNavbar = styled.nav`
   position: fixed;
@@ -96,7 +97,31 @@ const StyledNavbar = styled.nav`
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 `;
 
-const NavbarContent = styled.div`
+const LeftSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+/* Contenedor para iconos sociales - siempre visible */
+const SocialIcons = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    gap: 0.3rem; /* Menos espacio en móviles */
+  }
+`;
+
+/* Contenedor para elementos del menú hamburguesa */
+const MenuContent = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -107,16 +132,21 @@ const NavbarContent = styled.div`
     top: 0;
     right: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
     height: 100vh;
-    width: 250px;
-    background-color: rgba(0, 0, 0, 0.9);
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.95);
     padding: 2rem;
     transition: right 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    gap: 2rem;
+
+    /* Centrar contenido verticalmente */
+    justify-content: center;
   }
 `;
 
 const LanguageButton = styled.button`
   padding: 0.5rem 1rem;
-  border: 1px solid #neutral-500;
+  border: 1px solid #6b7280;
   border-radius: 0.5rem;
   font-size: 0.875rem;
   font-weight: 500;
@@ -129,6 +159,12 @@ const LanguageButton = styled.button`
     background-color: ${({ darkMode }) =>
       darkMode === "dark" ? "#1e293b" : "#e2e8f0"};
   }
+
+  @media (max-width: 768px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    width: 200px;
+  }
 `;
 
 const MenuButton = styled.button`
@@ -138,6 +174,13 @@ const MenuButton = styled.button`
   color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 
   @media (max-width: 768px) {
     display: block;
@@ -148,9 +191,10 @@ const CloseButton = styled(MenuButton)`
   position: absolute;
   top: 1rem;
   right: 1rem;
+  color: #fff;
 `;
 
-const Switch = ({ darkMode, toggleDarkMode }) => {
+const Switch = ({ darkMode, toggleDarkMode, language }) => {
   return (
     <StyledWrapper>
       <div className="toggle-switch">
@@ -164,11 +208,25 @@ const Switch = ({ darkMode, toggleDarkMode }) => {
           <span className="slider" />
         </label>
       </div>
+      <SwitchLabel>
+        {language === "es"
+          ? darkMode === "dark"
+            ? "Modo Oscuro"
+            : "Modo Claro"
+          : darkMode === "dark"
+          ? "Dark Mode"
+          : "Light Mode"}
+      </SwitchLabel>
     </StyledWrapper>
   );
 };
 
 const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
   .toggle-switch {
     position: relative;
     width: 60px;
@@ -225,6 +283,58 @@ const StyledWrapper = styled.div`
   }
 `;
 
+const SwitchLabel = styled.span`
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
+`;
+
+/* Componente para los CVs que solo aparece en el menú hamburguesa */
+const CVSection = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+`;
+
+const CVButton = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  width: 200px;
+  justify-content: center;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+`;
+
 const Navbar = ({ language, toggleLanguage, darkMode, toggleDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -232,51 +342,111 @@ const Navbar = ({ language, toggleLanguage, darkMode, toggleDarkMode }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <StyledNavbar>
-      <div className="m-4 flex items-center justify-center gap-2 text-2xl"></div>
-      <MenuButton onClick={toggleMenu}>
-        <FaBars />
-      </MenuButton>
-      <NavbarContent isOpen={isMenuOpen}>
-        <CloseButton onClick={toggleMenu}>
+      <LeftSection>
+        {/* Logo o espacio para logo */}
+        <div className="m-4 flex items-center justify-center gap-2 text-2xl"></div>
+      </LeftSection>
+
+      <RightSection>
+        {/* Iconos sociales - siempre visibles */}
+        <SocialIcons>
+          <IconWrapper
+            href="https://www.linkedin.com/in/roboam-ismael-rangel-ceja-87a2b72b6/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+          >
+            <FaLinkedin />
+          </IconWrapper>
+
+          <WhatsappIconWrapper
+            href="https://wa.me/+524432381825?text=Hola,%20quisiera%20contactarte"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="WhatsApp"
+          >
+            <FaWhatsapp />
+          </WhatsappIconWrapper>
+
+          {/* CVs solo visibles en desktop */}
+          <PdfIconWrapper
+            href="/Roboam_Ismael_Rangel_Ceja.pdf"
+            download
+            target="_blank"
+            style={{ display: window.innerWidth > 768 ? "flex" : "none" }}
+          >
+            <FaFilePdf />
+            <span>CV Español</span>
+          </PdfIconWrapper>
+
+          <PdfIconWrapper
+            href="/Roboam_Ismael_Rangel_Ceja_English.pdf"
+            download
+            target="_blank"
+            style={{ display: window.innerWidth > 768 ? "flex" : "none" }}
+          >
+            <FaFilePdf />
+            <span>CV English</span>
+          </PdfIconWrapper>
+        </SocialIcons>
+
+        {/* Botón del menú hamburguesa */}
+        <MenuButton onClick={toggleMenu}>
+          <FaBars />
+        </MenuButton>
+      </RightSection>
+
+      {/* Menú hamburguesa */}
+      <MenuContent isOpen={isMenuOpen}>
+        <CloseButton onClick={closeMenu}>
           <FaTimes />
         </CloseButton>
-        <LanguageButton onClick={toggleLanguage} darkMode={darkMode}>
+
+        <LanguageButton
+          onClick={() => {
+            toggleLanguage();
+            closeMenu();
+          }}
+          darkMode={darkMode}
+        >
           {language === "es" ? "Switch to English" : "Cambiar a Español"}
         </LanguageButton>
-        <IconWrapper
-          href="https://www.linkedin.com/in/roboam-ismael-rangel-ceja-87a2b72b6/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaLinkedin />
-        </IconWrapper>
-        <WhatsappIconWrapper
-          href="https://wa.me/+524432381825?text=Hola,%20quisiera%20contactarte"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaWhatsapp />
-        </WhatsappIconWrapper>
-        <PdfIconWrapper
-          href="/Roboam_Ismael_Rangel_Ceja.pdf"
-          download
-          target="_blank"
-        >
-          <FaFilePdf />
-          <span>CV Español</span>
-        </PdfIconWrapper>
-        <PdfIconWrapper
-          href="/Roboam_Ismael_Rangel_Ceja_English.pdf"
-          download
-          target="_blank"
-        >
-          <FaFilePdf />
-          <span>CV English</span>
-        </PdfIconWrapper>
-        <Switch darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      </NavbarContent>
+
+        {/* CVs en el menú móvil */}
+        <CVSection>
+          <CVButton
+            href="/Roboam_Ismael_Rangel_Ceja.pdf"
+            download
+            target="_blank"
+            onClick={closeMenu}
+          >
+            <FaFilePdf />
+            CV Español
+          </CVButton>
+
+          <CVButton
+            href="/Roboam_Ismael_Rangel_Ceja_English.pdf"
+            download
+            target="_blank"
+            onClick={closeMenu}
+          >
+            <FaFilePdf />
+            CV English
+          </CVButton>
+        </CVSection>
+
+        <Switch
+          darkMode={darkMode}
+          toggleDarkMode={toggleDarkMode}
+          language={language}
+        />
+      </MenuContent>
     </StyledNavbar>
   );
 };

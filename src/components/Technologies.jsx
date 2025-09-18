@@ -1,5 +1,4 @@
 import { RiReactjsLine } from "react-icons/ri";
-import { TbBrandNextjs } from "react-icons/tb";
 import { DiJavascript1, DiJava, DiPython } from "react-icons/di";
 import { SiArduino } from "react-icons/si";
 import { motion } from "framer-motion";
@@ -9,6 +8,7 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import { SiJira } from "react-icons/si";
 import { BsTrello } from "react-icons/bs";
 import { DiHtml5, DiCss3 } from "react-icons/di";
+import { PiMicrosoftExcelLogo } from "react-icons/pi";
 import { DiScrum } from "react-icons/di";
 import { SiAzuredevops } from "react-icons/si";
 import { BsCamera } from "react-icons/bs";
@@ -19,6 +19,115 @@ import { RiFirebaseFill } from "react-icons/ri";
 import { FaGamepad } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { BsGitlab } from "react-icons/bs";
+
+const PowerBIIcon = ({ className }) => (
+  <svg
+    viewBox="1 5 24 12"
+    className={className}
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect x="16.5" y="7" width="3" height="10" rx="0.3" />
+    <rect x="11.5" y="9" width="3" height="8" rx="0.3" />
+    <rect x="6.5" y="12" width="3" height="5" rx="0.3" />
+  </svg>
+);
+
+const VBAIcon = ({ className }) => (
+  <svg
+    viewBox="0 0 24 24"
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* Cubo naranja (izquierda) */}
+    <g>
+      <path
+        d="M2 8 L6 6 L6 12 L2 14 Z"
+        fill="#FF8C00"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+      <path
+        d="M2 8 L8 8 L8 14 L2 14 Z"
+        fill="#FF6B00"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+      <path
+        d="M6 6 L8 8 L8 14 L6 12 Z"
+        fill="#E55100"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+    </g>
+
+    {/* Cubo amarillo (centro-abajo) */}
+    <g>
+      <path
+        d="M7 12 L11 10 L11 16 L7 18 Z"
+        fill="#FFD600"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+      <path
+        d="M7 12 L13 12 L13 18 L7 18 Z"
+        fill="#FFC107"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+      <path
+        d="M11 10 L13 12 L13 18 L11 16 Z"
+        fill="#FF8F00"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+    </g>
+
+    {/* Cubo azul (centro-arriba) */}
+    <g>
+      <path
+        d="M10 4 L14 2 L14 8 L10 10 Z"
+        fill="#42A5F5"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+      <path
+        d="M10 4 L16 4 L16 10 L10 10 Z"
+        fill="#1976D2"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+      <path
+        d="M14 2 L16 4 L16 10 L14 8 Z"
+        fill="#0D47A1"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+    </g>
+
+    {/* Cubo magenta (derecha) */}
+    <g>
+      <path
+        d="M16 8 L20 6 L20 12 L16 14 Z"
+        fill="#E91E63"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+      <path
+        d="M16 8 L22 8 L22 14 L16 14 Z"
+        fill="#AD1457"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+      <path
+        d="M20 6 L22 8 L22 14 L20 12 Z"
+        fill="#880E4F"
+        stroke="#000"
+        strokeWidth="0.3"
+      />
+    </g>
+  </svg>
+);
 
 const iconVariants = (duration) => ({
   initial: { y: -1 },
@@ -66,17 +175,17 @@ function Technologies({ language, darkMode }) {
         <motion.div className={gridClass}>
           {[
             { Icon: RiReactjsLine, name: "REACT", color: "text-cyan-400" },
-            { Icon: TbBrandNextjs, name: "Next.js", color: "" },
             {
               Icon: DiJavascript1,
               name: "Javascript",
               color: "text-yellow-500",
             },
+            { Icon: DiHtml5, name: "HTML", color: "text-[#E34F26]" },
+            { Icon: DiCss3, name: "CSS", color: "text-[#1572B6]" },
             { Icon: RiNodejsFill, name: "Node.js", color: "text-[#339933]" },
             { Icon: DiJava, name: "Java", color: "text-[#EC2125]" },
             { Icon: DiPython, name: "Python", color: "text-[#3F7CAD]" },
-            { Icon: DiHtml5, name: "HTML", color: "text-[#E34F26]" },
-            { Icon: DiCss3, name: "CSS", color: "text-[#1572B6]" },
+            { Icon: VBAIcon, name: "VBA", color: "text-[#217346]" },
           ].map(({ Icon, name, color }, index) => (
             <motion.div
               key={name}
@@ -119,10 +228,15 @@ function Technologies({ language, darkMode }) {
               name: "Tailwind",
               color: "text-[#06B6D4]",
             },
+            {
+              Icon: PiMicrosoftExcelLogo,
+              name: "Excel",
+              color: "text-[#63BE7B]",
+            },
+            { Icon: PowerBIIcon, name: "Power BI", color: "text-[#F2C811]" },
             { Icon: SiCanva, name: "Canva", color: "text-[#00C4CC]" },
             { Icon: FaFigma, name: "Figma", color: "text-[#F24E1E]" },
             { Icon: SiJira, name: "Jira", color: "text-[#0052CC]" },
-            { Icon: BsTrello, name: "Trello", color: "text-[#0079BF]" },
           ].map(({ Icon, name, color }, index) => (
             <motion.div
               key={name}
