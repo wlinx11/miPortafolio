@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Technologies from "./components/Technologies";
+import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 
@@ -82,6 +83,7 @@ const App = () => {
         />
         <Hero language={language} darkMode={darkMode} />
         <Technologies language={language} darkMode={darkMode} />
+  <Experience language={language} />
         <Projects language={language} darkMode={darkMode} />
         <About language={language} darkMode={darkMode} />
         <Contact language={language} darkMode={darkMode} />

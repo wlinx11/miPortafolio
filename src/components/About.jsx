@@ -1,5 +1,4 @@
-import React from "react";
-import yo2 from "../assets/yo2.webp";
+/* eslint-disable react/prop-types */
 import premiacion from "../assets/premiacion.jpg";
 import lego from "../assets/lego.jpg";
 import InglesGraduacion from "../assets/InglesGraduacion.jpg";
@@ -85,11 +84,15 @@ const About = ({ language }) => {
                   { src: premiacionVivel, alt: "Premiación vivel" },
                 ].map((img, index) => (
                   <div key={index} className="px-2">
-                    <div className="aspect-w-16 aspect-h-12 md:aspect-h-11">
+                    {/* Use the native CSS aspect-ratio to create a stable frame and center images */}
+                    <div
+                      className="flex items-center justify-center overflow-hidden bg-neutral-900 rounded-xl md:rounded-2xl shadow-lg"
+                      style={{ aspectRatio: "16 / 12" }}
+                    >
                       <img
                         src={img.src}
                         alt={img.alt}
-                        className="rounded-xl md:rounded-2xl w-full h-full object-cover shadow-lg"
+                        className="max-w-full max-h-full object-contain"
                       />
                     </div>
                   </div>

@@ -19,6 +19,7 @@ import { RiFirebaseFill } from "react-icons/ri";
 import { FaGamepad } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { BsGitlab } from "react-icons/bs";
+import { RiEnglishInput } from "react-icons/ri";
 
 const PowerBIIcon = ({ className }) => (
   <svg
@@ -324,6 +325,11 @@ function Technologies({ language, darkMode }) {
             {
               Icon: FaGamepad,
               name: language === "es" ? "Videojuegos" : "Videogames",
+              color: "text-[#0079BF]",
+            },
+            {
+              Icon: RiEnglishInput,
+              name: language === "es" ? "Ingles B1" : "English B1",
               color: "text-[#0079BF]",
             },
           ].map(({ Icon, name, color }, index) => (

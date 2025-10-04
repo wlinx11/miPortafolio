@@ -376,7 +376,7 @@ const Navbar = ({ language, toggleLanguage, darkMode, toggleDarkMode }) => {
 
           {/* CVs solo visibles en desktop */}
           <PdfIconWrapper
-            href="/Roboam_Ismael_Rangel_Ceja.pdf"
+            href="/Roboam_Ismael_CV.pdf"
             download
             target="_blank"
             style={{ display: window.innerWidth > 768 ? "flex" : "none" }}
@@ -386,7 +386,7 @@ const Navbar = ({ language, toggleLanguage, darkMode, toggleDarkMode }) => {
           </PdfIconWrapper>
 
           <PdfIconWrapper
-            href="/Roboam_Ismael_Rangel_Ceja_English.pdf"
+            href="/Roboam_Ismael_CV_English.pdf"
             download
             target="_blank"
             style={{ display: window.innerWidth > 768 ? "flex" : "none" }}
@@ -421,7 +421,7 @@ const Navbar = ({ language, toggleLanguage, darkMode, toggleDarkMode }) => {
         {/* CVs en el menú móvil */}
         <CVSection>
           <CVButton
-            href="/Roboam_Ismael_Rangel_Ceja.pdf"
+            href="/Roboam_Ismael_CV.pdf"
             download
             target="_blank"
             onClick={closeMenu}
@@ -431,7 +431,7 @@ const Navbar = ({ language, toggleLanguage, darkMode, toggleDarkMode }) => {
           </CVButton>
 
           <CVButton
-            href="/Roboam_Ismael_Rangel_Ceja_English.pdf"
+            href="/Roboam_Ismael_CV_English.pdf"
             download
             target="_blank"
             onClick={closeMenu}

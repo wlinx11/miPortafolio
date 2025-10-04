@@ -11,8 +11,10 @@ import sandar5 from "../assets/projects/sandar5.jpg";
 import notaria641 from "../assets/projects/notaria641.jpg";
 import notaria642 from "../assets/projects/notaria642.jpg";
 import notaria643 from "../assets/projects/notaria643.jpg";
-import * as DevIcons from "devicons-react";
-import { AlignVerticalJustifyCenter } from "lucide-react";
+import harmanLogo from "../assets/experience/harmanLogo.png";
+import amigosHarman from "../assets/experience/amigosHarman.jpg";
+import scorecardExcel from "../assets/experience/scorecardExcel.jpg";
+import scorecardPowerBI from "../assets/experience/scorecardPowerBI.jpg";
 
 export const HERO_CONTENTS = {
   en: `I am a Junior Web Developer, soon to graduate as a Computer Systems Engineer from the Instituto Tecnológico de Morelia, with a specialization in Software Engineering.`,
@@ -21,11 +23,11 @@ export const HERO_CONTENTS = {
 };
 
 export const ABOUT_TEXT = {
-  en: `My name is Roboam Ismael Rangel Ceja, I am 25 years old, and I am currently in my last semester of Computer Systems Engineering in Morelia, Michoacán. Throughout my studies, I have gained experience in software development, especially in frontend with technologies like React and Next.js.
+  en: `My name is Roboam Ismael Rangel Ceja, I am 26 years old, and I am currently in my last semester of Computer Systems Engineering in Morelia, Michoacán. Throughout my studies, I have gained experience in software development, especially in frontend with technologies like React and Next.js.
 
 In addition to my passion for programming, I am interested in continuing to learn about areas such as artificial intelligence, video game development, and data science. I have a good level of English and stand out for my adaptability in teams and in facing complex challenges. I am seeking an opportunity to carry out my professional internship, where I can contribute my skills and continue growing in my career. I am willing to relocate to meet the company's requirements.`,
 
-  es: `Mi nombre es Roboam Ismael Rangel Ceja, tengo 25 años y actualmente estoy cursando mi último semestre de la carrera de ingeniería en sistemas en Morelia, Michoacán. A lo largo de mi formación, he adquirido experiencia en el desarrollo de software, especialmente en el frontend con tecnologías como React y Next.js.
+  es: `Mi nombre es Roboam Ismael Rangel Ceja, tengo 26 años y actualmente estoy cursando mi último semestre de la carrera de ingeniería en sistemas en Morelia, Michoacán. A lo largo de mi formación, he adquirido experiencia en el desarrollo de software, especialmente en el frontend con tecnologías como React y Next.js.
 
 Además de mi pasión por la programación, me interesa seguir aprendiendo sobre áreas como inteligencia artificial, desarrollo de videojuegos y ciencias de datos. Tengo un buen nivel de inglés y me destaco por mi capacidad de adaptación en equipos y ante retos complejos. Estoy en búsqueda de una oportunidad para realizar mis prácticas profesionales, donde pueda aportar mis habilidades y continuar creciendo en mi carrera. Estoy dispuesto a movilizarme para cumplir con los requerimientos de la empresa.`,
 };
@@ -105,3 +107,20 @@ export const CONTACT = {
   phoneNo: "443-238-1825 (WhatsApp)",
   email: "wlinx11@gmail.com",
 };
+
+export const EXPERIENCES = [
+  {
+    company: "Harman Querétaro",
+    role: {
+      en: "Professional Intern",
+      es: "Residente Profesional",
+    },
+    period: "2025",
+    description: {
+      en: "I worked as a process automation intern in the MBU area, designing, developing and improving internal processes to save time and provide better business intelligence for interpreting key data. I collaborated with internal and external teams, both on joint initiatives and by delivering solutions for their individual projects.",
+      es: "Trabajé como automatizador de procesos para el área de MBU, diseñando, desarrollando y mejorando procesos internos para ahorrar tiempo y proporcionar mayor inteligencia de negocios en la interpretación de datos relevantes. Colaboré con equipos internos y externos, tanto en iniciativas conjuntas como entregando soluciones para sus propios proyectos.",
+    },
+    technologies: ["Excel", "Visual Basic for Applications", "PowerBI", "SAP "],
+    images: [harmanLogo, amigosHarman, scorecardExcel, scorecardPowerBI], // you can add image imports here if you want to show photos
+  },
+];
