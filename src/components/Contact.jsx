@@ -1,6 +1,8 @@
+import { LinkedinPlain } from "devicons-react";
 import { CONTACT } from "../constants";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
 
 function Contact({ language }) {
   return (
@@ -45,6 +47,23 @@ function Contact({ language }) {
     hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors pb-0.5"
             >
               {CONTACT.phoneNo}
+            </a>
+          </motion.div>
+          <motion.div
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex items-center gap-2"
+          >
+            <LinkedinPlain className="w-5 h-5 text-neutral-400 flex-shrink-0" />
+            <a
+              href="https://www.linkedin.com/in/roboam-ismael-rangel-ceja-87a2b72b6/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base md:text-lg border-b border-neutral-600 hover:border-white 
+    hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors pb-0.5"
+            >
+              LinkedIn
             </a>
           </motion.div>
 

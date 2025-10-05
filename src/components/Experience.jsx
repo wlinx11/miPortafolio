@@ -59,21 +59,21 @@ export default function Experience({ language }) {
         {EXPERIENCES.map((exp, idx) => (
           <div key={idx} className="mb-8 md:mb-12">
             <div className="flex flex-col lg:flex-row items-center gap-6 md:gap-12">
-              <div className="w-full lg:w-1/3">
+              <div className="w-full lg:w-2/5">
                 <div className="max-w-md mx-auto">
                   {exp.images && exp.images.length > 0 ? (
                     <Slider {...settings}>
                       {exp.images.map((img, i) => (
                         <div className="px-2" key={i}>
-                          <div
-                            className="flex items-center justify-center overflow-hidden bg-neutral-900 rounded-xl shadow-lg"
-                            style={{ aspectRatio: "16 / 12" }}
-                          >
-                            <img
-                              src={img}
-                              alt={`${exp.company} ${i}`}
-                              className="max-w-full max-h-full object-contain"
-                            />
+                          {/* If the image filename contains 'harmanLogo', render it on a white padded background for contrast */}
+                          <div className="flex items-center justify-center overflow-hidden rounded-xl shadow-lg bg-neutral-900" style={{ aspectRatio: "16 / 9" }}>
+                            {String(img).toLowerCase().includes('harmanlogo') ? (
+                              <div className="bg-white p-4 rounded">
+                                <img src={img} alt={`${exp.company} ${i}`} className="max-w-full max-h-40 object-contain" />
+                              </div>
+                            ) : (
+                              <img src={img} alt={`${exp.company} ${i}`} loading="lazy" className="max-w-full max-h-full object-contain" />
+                            )}
                           </div>
                         </div>
                       ))}

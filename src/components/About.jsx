@@ -2,7 +2,6 @@
 import premiacion from "../assets/premiacion.jpg";
 import lego from "../assets/lego.jpg";
 import InglesGraduacion from "../assets/InglesGraduacion.jpg";
-import grupoFotografico from "../assets/grupoFotografico.jpg";
 import premiacionVivel from "../assets/premiacionVivel.jpg";
 import yo3 from "../assets/yo3.jpg";
 import { ABOUT_TEXT } from "../constants";
@@ -10,6 +9,8 @@ import { motion } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import amigosHarman from "../assets/experience/amigosHarman.jpg";
+import cumpleañosHarman from "../assets/experience/cumpleañosHarman.jpg";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const NextArrow = ({ onClick }) => (
@@ -76,10 +77,11 @@ const About = ({ language }) => {
             <div className="max-w-2xl mx-auto lg:mx-0">
               <Slider {...settings} className="about-slider">
                 {[
+                  { src: amigosHarman, alt: "Amigos Harman" },
                   { src: yo3, alt: "Yo" },
                   { src: premiacion, alt: "Premiación" },
                   { src: lego, alt: "Premiacion lego" },
-                  { src: grupoFotografico, alt: "Grupo fotografico" },
+                  { src: cumpleañosHarman, alt: "Cumpleaños Harman" },
                   { src: InglesGraduacion, alt: "Ingles graduacion" },
                   { src: premiacionVivel, alt: "Premiación vivel" },
                 ].map((img, index) => (

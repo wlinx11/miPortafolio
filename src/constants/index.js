@@ -12,9 +12,11 @@ import notaria641 from "../assets/projects/notaria641.jpg";
 import notaria642 from "../assets/projects/notaria642.jpg";
 import notaria643 from "../assets/projects/notaria643.jpg";
 import harmanLogo from "../assets/experience/harmanLogo.png";
-import amigosHarman from "../assets/experience/amigosHarman.jpg";
 import scorecardExcel from "../assets/experience/scorecardExcel.jpg";
 import scorecardPowerBI from "../assets/experience/scorecardPowerBI.jpg";
+import OTDStandard from "../assets/experience/OTDStandard.jpg";
+import automatizacionSAP from "../assets/experience/automatizacionSAP.jpg";
+import controlDeIntervenciones from "../assets/experience/controlDeIntervenciones.jpg";
 
 export const HERO_CONTENTS = {
   en: `I am a Junior Web Developer, soon to graduate as a Computer Systems Engineer from the Instituto Tecnológico de Morelia, with a specialization in Software Engineering.`,
@@ -23,13 +25,15 @@ export const HERO_CONTENTS = {
 };
 
 export const ABOUT_TEXT = {
-  en: `My name is Roboam Ismael Rangel Ceja, I am 26 years old, and I am currently in my last semester of Computer Systems Engineering in Morelia, Michoacán. Throughout my studies, I have gained experience in software development, especially in frontend with technologies like React and Next.js.
+  en: `My name is Roboam Ismael Rangel Ceja. I am 26 years old and I am about to graduate with a degree in Computer Systems Engineering from the Instituto Tecnológico de Morelia, after completing my professional residency at Harman Querétaro.
+Throughout my training, I have gained experience in software development, especially in frontend technologies such as React and Next.js.
 
-In addition to my passion for programming, I am interested in continuing to learn about areas such as artificial intelligence, video game development, and data science. I have a good level of English and stand out for my adaptability in teams and in facing complex challenges. I am seeking an opportunity to carry out my professional internship, where I can contribute my skills and continue growing in my career. I am willing to relocate to meet the company's requirements.`,
+In addition to my passion for programming, I am eager to keep learning in areas such as business intelligence, video game development, data science, and application development. I have a good level of English and I stand out for my adaptability in teams and when facing complex challenges.`,
 
-  es: `Mi nombre es Roboam Ismael Rangel Ceja, tengo 26 años y actualmente estoy cursando mi último semestre de la carrera de ingeniería en sistemas en Morelia, Michoacán. A lo largo de mi formación, he adquirido experiencia en el desarrollo de software, especialmente en el frontend con tecnologías como React y Next.js.
+  es: `Mi nombre es Roboam Ismael Rangel Ceja. Tengo 26 años y actualmente estoy por titularme como Ingeniero en Sistemas Computacionales en el Instituto Tecnológico de Morelia, tras realizar mis residencias profesionales en Harman Querétaro.
+A lo largo de mi formación, he adquirido experiencia en el desarrollo de software, especialmente en frontend con tecnologías como React y Next.js.
 
-Además de mi pasión por la programación, me interesa seguir aprendiendo sobre áreas como inteligencia artificial, desarrollo de videojuegos y ciencias de datos. Tengo un buen nivel de inglés y me destaco por mi capacidad de adaptación en equipos y ante retos complejos. Estoy en búsqueda de una oportunidad para realizar mis prácticas profesionales, donde pueda aportar mis habilidades y continuar creciendo en mi carrera. Estoy dispuesto a movilizarme para cumplir con los requerimientos de la empresa.`,
+Además de mi pasión por la programación, me interesa seguir aprendiendo en áreas como inteligencia de negocios, desarrollo de videojuegos, ciencia de datos y desarrollo de aplicaciones. Tengo un buen nivel de inglés y me destaco por mi capacidad de adaptación en equipos y al enfrentar retos complejos.`,
 };
 
 export const PROJECTS = [
@@ -121,6 +125,6 @@ export const EXPERIENCES = [
       es: "Trabajé como automatizador de procesos para el área de MBU, diseñando, desarrollando y mejorando procesos internos para ahorrar tiempo y proporcionar mayor inteligencia de negocios en la interpretación de datos relevantes. Colaboré con equipos internos y externos, tanto en iniciativas conjuntas como entregando soluciones para sus propios proyectos.",
     },
     technologies: ["Excel", "Visual Basic for Applications", "PowerBI", "SAP "],
-    images: [harmanLogo, amigosHarman, scorecardExcel, scorecardPowerBI], // you can add image imports here if you want to show photos
+    images: [harmanLogo, scorecardExcel, scorecardPowerBI, automatizacionSAP, controlDeIntervenciones, OTDStandard],
   },
 ];

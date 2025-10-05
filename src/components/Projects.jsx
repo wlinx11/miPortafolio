@@ -68,7 +68,7 @@ function Projects({ language, darkMode }) {
               transition={{ duration: 1 }}
               className="w-full lg:w-1/2 xl:w-1/3"
             >
-              <div className="max-w-md mx-auto">
+              <div className="max-w-full mx-auto">
                 <Slider {...settings}>
                   <div className="px-2">
                     <ProjectImage
@@ -181,11 +181,14 @@ function ProjectImage({ project, language, imageType }) {
   }`;
 
   const ImageComponent = (
-    <img
-      src={imageUrl}
-      alt={altText}
-      className="w-full h-auto rounded shadow-lg object-cover aspect-video"
-    />
+    <div className="flex items-center justify-center overflow-hidden rounded-xl shadow-lg bg-neutral-900" style={{ aspectRatio: "16 / 9" }}>
+      <img
+        src={imageUrl}
+        alt={altText}
+        loading="lazy"
+        className="max-w-full max-h-full object-contain"
+      />
+    </div>
   );
 
   if (project.title[language] === "Sandar Inmuebles - Página Inmobiliaria") {
