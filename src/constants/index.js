@@ -124,7 +124,7 @@ export const EXPERIENCES = [
       en: "I worked as a process automation intern in the MBU area, designing, developing and improving internal processes to save time and provide better business intelligence for interpreting key data. I collaborated with internal and external teams, both on joint initiatives and by delivering solutions for their individual projects.",
       es: "Trabajé como automatizador de procesos para el área de MBU, diseñando, desarrollando y mejorando procesos internos para ahorrar tiempo y proporcionar mayor inteligencia de negocios en la interpretación de datos relevantes. Colaboré con equipos internos y externos, tanto en iniciativas conjuntas como entregando soluciones para sus propios proyectos.",
     },
-    technologies: ["Excel", "Visual Basic for Applications", "PowerBI", "SAP "],
+    technologies: ["Excel", "Visual Basic for Applications", "PowerBI", "SAP ERP"],
     images: [harmanLogo, scorecardExcel, scorecardPowerBI, automatizacionSAP, controlDeIntervenciones, OTDStandard],
   },
 ];

@@ -68,7 +68,11 @@ const App = () => {
           </div>
         ) : (
           <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px), bg-[size:6rem_4rem]">
+            {/* Existing subtle purple blotch (right-ish) */}
             <div className="absolute bottom-0 left-0 right-0 top-[-50%] bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div>
+            {/* New subtle purple blotch on the left for light mode only (adjusted: more diffused, lower) */}
+            <div className="absolute left-[-22%] top-[38%] h-[760px] w-[760px] rounded-full pointer-events-none
+              bg-[radial-gradient(circle_1200px_at_8%_70%,rgba(199,163,255,0.20),rgba(199,163,255,0.10),rgba(199,163,255,0.04),transparent)] blur-2xl opacity-90"></div>
           </div>
         )}
       </div>
